@@ -4,7 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mymap/cubit/cubit.dart';
 import 'package:mymap/cubit/states.dart';
 import 'cubit/bloc_observer.dart';
-import 'mapScreen.dart';
+import 'modules/mapScreen.dart';
 
 void main() {
   Bloc.observer = MyBlocObserver();
@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
       create: (context) => LocationCubit(),
       child: BlocConsumer<LocationCubit, LocationStates>(
         builder: (context, state) {
-          return MaterialApp(
+          return MaterialApp(theme: ThemeData(colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.teal)),
             debugShowCheckedModeBanner: false,
             home: MapScreen(),
           );
